@@ -1,5 +1,10 @@
 # Event-Management-System
 
+The front end uses the React.js framework, and the back end uses the Spring Boot framework to realize the login and logout of the website, and the activity founder can create, manage and delete activities.
+Announcements will be made for participants. Users can view recommended activities, search activities, view activity details on the home page, purchase and refund tickets, and redeem them by playing mini-games
+Discount ticket.
+
+
 ![image](https://github.com/JackyChen98/Event-Management-System/assets/46955098/ff3c2009-b271-4b09-93f5-622ceb95424f)
 
 ![image](https://github.com/JackyChen98/Event-Management-System/assets/46955098/c2cee08b-1e3e-4521-aba7-ea06332574f2)
