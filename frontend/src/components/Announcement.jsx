@@ -108,7 +108,7 @@ function Announcement() {
                         <img src={eventthumbnail ? eventthumbnail.replace(/"/g, '') : defaultEvent} alt="Event image"  height={'300px'}
                                             width={'auto'} style={{ marginBottom: 16 }} />
                     </div>
-                    <p><strong>Date:</strong> {new Date(event.eventStartDate).toLocaleDateString('en-GB')} {event.eventStartDate.slice(10,19)}</p>
+                    <p><strong>Date:</strong> {new Date(event.eventStartDate).toLocaleDateString('en-GB')} {new Date(event.eventStartDate).toLocaleTimeString('en-GB')}</p >
                     <p><strong>Location:</strong> {event.eventLocation}</p>
                     <p><strong>Description:</strong> {event.eventDescription}</p>
                     <hr />
