@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.CommandMapper">
+
+    <resultMap id="BaseResultMap" type="com.test.pojo.Command">
+            <id property="commandId" column="Command_Id" jdbcType="INTEGER"/>
+            <result property="userId" column="User_Id" jdbcType="INTEGER"/>
+            <result property="eventId" column="Event_Id" jdbcType="INTEGER"/>
+            <result property="holderId" column="Holder_Id" jdbcType="INTEGER"/>
+            <result property="commandDetail" column="Command_Detail" jdbcType="VARCHAR"/>
+            <result property="commandReply" column="Command_Reply" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        Command_Id,User_Id,Event_Id,
+        Holder_Id,Command_Detail,Command_Reply
+    </sql>
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="commandId">
+        insert into command
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="commandId != null">Command_Id,</if>
+            <if test="userId != null">User_Id,</if>
+            <if test="eventId != null">Event_Id,</if>
+            <if test="holderId != null">Holder_Id,</if>
+            <if test="commandDetail != null">Command_Detail,</if>
+            <if test="commandReply != null">Command_Reply,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="commandId!= null">#{commandId,jdbcType=INTEGER},</if>
+            <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+            <if test="eventId != null">#{eventId,jdbcType=INTEGER},</if>
+            <if test="holderId != null">#{holderId,jdbcType=INTEGER},</if>
+            <if test="commandDetail != null">#{commandDetail,jdbcType=VARCHAR},</if>
+            <if test="commandReply != null">#{commandReply,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.Command">
+        update command
+        <set>
+            <if test="commandDetail != null">
+                Command_Detail = #{commandDetail,jdbcType=VARCHAR},
+            </if>
+            <if test="commandReply != null">
+                Command_Reply = #{commandReply,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where Command_Id = #{commandId,jdbcType=INTEGER}
+    </update>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from command
+        where Command_Id = #{id,jdbcType=INTEGER}
+    </delete>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from command
+        where Command_Id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="queryAll" resultType="com.test.pojo.Command"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from command
+    </select>
+</mapper>

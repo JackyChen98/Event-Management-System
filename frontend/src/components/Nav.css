@@ -1,0 +1,31 @@
+.titleStyle {
+    position: relative;
+    color: transparent;
+    background-image: linear-gradient(to right,
+            #c23616,
+            #192a56,
+            #80d2d2,
+            yellow,
+            #6d214f,
+            #2e86de,
+            #4cd137,
+            #e84118);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: move 5s infinite;
+}
+
+@keyframes move {
+    0% {
+        clip-path: circle(100px at 0% 50%);
+    }
+
+    50% {
+        clip-path: circle(100px at 100% 50%);
+    }
+
+    100% {
+        clip-path: circle(100px at 0% 50%);
+    }
+}

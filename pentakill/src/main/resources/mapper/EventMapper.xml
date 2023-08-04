@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.EventMapper">
+
+    <resultMap id="BaseResultMap" type="com.test.pojo.Event">
+            <id property="eventId" column="Event_Id" jdbcType="INTEGER"/>
+            <result property="eventHolderId" column="Event_Holder_Id" jdbcType="INTEGER"/>
+            <result property="eventName" column="Event_Name" jdbcType="VARCHAR"/>
+            <result property="eventType" column="Event_Type" jdbcType="VARCHAR"/>
+            <result property="eventDescription" column="Event_Description" jdbcType="VARCHAR"/>
+            <result property="eventStartDate" column="Event_Start_Date" jdbcType="VARCHAR"/>
+            <result property="eventEndDate" column="Event_End_Date" jdbcType="VARCHAR"/>
+            <result property="eventLocation" column="Event_Location" jdbcType="VARCHAR"/>
+            <result property="eventMemberList" column="Event_Member_List" jdbcType="VARCHAR"/>
+            <result property="eventCommandList" column="Event_Command_List" jdbcType="VARCHAR"/>
+            <result property="eventTicketPrice" column="Event_Ticket_Price" jdbcType="VARCHAR"/>
+            <result property="eventTicketLeft" column="Event_Ticket_Left" jdbcType="VARCHAR"/>
+            <result property="eventMaxRow" column="Event_Max_Row" jdbcType="INTEGER"/>
+            <result property="eventMaxColumn" column="Event_Max_Column" jdbcType="INTEGER"/>
+            <result property="eventThumbnail" column="Event_Thumbnail" jdbcType="VARCHAR"/>
+            <result property="eventLikeList" column="Event_Like_List" jdbcType="VARCHAR"/>
+            <result property="eventDetailLocation" column="Event_Detail_Location" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        Event_Id,Event_Holder_Id,Event_Name,
+        Event_Type,Event_Description,Event_Start_Date,
+        Event_End_Date,Event_Location,Event_Member_List,
+        Event_Command_List,Event_Ticket_Price,Event_Ticket_Left,
+        Event_Max_Row,Event_Max_Column,Event_Thumbnail,Event_Like_List,Event_Detail_Location
+    </sql>
+    <insert id="insertSelective" parameterType="com.test.pojo.Event" useGeneratedKeys="true" keyProperty="eventId" keyColumn="id">
+        insert into event
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="eventId != null">Event_Id,</if>
+            <if test="eventHolderId != null">Event_Holder_Id,</if>
+            <if test="eventName != null">Event_Name,</if>
+            <if test="eventType != null">Event_Type,</if>
+            <if test="eventDescription != null">Event_Description,</if>
+            <if test="eventStartDate != null">Event_Start_Date,</if>
+            <if test="eventEndDate != null">Event_End_Date,</if>
+            <if test="eventLocation != null">Event_Location,</if>
+            <if test="eventThumbnail != null">Event_Thumbnail,</if>
+            <if test="eventMemberList != null">Event_Member_List,</if>
+            <if test="eventCommandList != null">Event_Command_List,</if>
+            <if test="eventTicketPrice != null">Event_Ticket_Price,</if>
+            <if test="eventTicketLeft != null">Event_Ticket_left,</if>
+            <if test="eventMaxRow != null">Event_Max_Row,</if>
+            <if test="eventMaxColumn != null">Event_Max_Column,</if>
+            <if test="eventLikeList!= null">Event_Like_List,</if>
+            <if test="eventDetailLocation!= null">Event_Detail_Location,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="eventId!= null">#{eventId,jdbcType=INTEGER},</if>
+            <if test="eventHolderId != null">#{eventHolderId,jdbcType=INTEGER},</if>
+            <if test="eventName != null">#{eventName,jdbcType=VARCHAR},</if>
+            <if test="eventType != null">#{eventType,jdbcType=VARCHAR},</if>
+            <if test="eventDescription != null">#{eventDescription,jdbcType=VARCHAR},</if>
+            <if test="eventStartDate != null">#{eventStartDate,jdbcType=VARCHAR},</if>
+            <if test="eventEndDate != null">#{eventEndDate,jdbcType=VARCHAR},</if>
+            <if test="eventLocation != null">#{eventLocation,jdbcType=VARCHAR},</if>
+            <if test="eventThumbnail != null">#{eventThumbnail,jdbcType=VARCHAR},</if>
+            <if test="eventMemberList != null">#{eventMemberList,jdbcType=VARCHAR},</if>
+            <if test="eventCommandList != null">#{eventCommandList,jdbcType=VARCHAR},</if>
+            <if test="eventTicketPrice != null">#{eventTicketPrice,jdbcType=VARCHAR},</if>
+            <if test="eventTicketLeft != null">#{eventTicketLeft,jdbcType=VARCHAR},</if>
+            <if test="eventMaxRow != null">#{eventMaxRow,jdbcType=INTEGER},</if>
+            <if test="eventMaxColumn != null">#{eventMaxColumn,jdbcType=INTEGER},</if>
+            <if test="eventLikeList != null">#{eventLikeList,jdbcType=VARCHAR},</if>
+            <if test="eventDetailLocation!= null">#{eventDetailLocation,jdbcType=VARCHAR},</if>
+        </trim>
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="eventId">
+            SELECT last_insert_rowid()
+        </selectKey>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.Event">
+        update event
+        <set>
+            <if test="eventName != null">
+                Event_Name = #{eventName,jdbcType=VARCHAR},
+            </if>
+            <if test="eventType != null">
+                Event_Type = #{eventType,jdbcType=VARCHAR},
+            </if>
+            <if test="eventDescription != null">
+                Event_Description = #{eventDescription,jdbcType=VARCHAR},
+            </if>
+            <if test="eventStartDate != null">
+                Event_Start_Date = #{eventStartDate,jdbcType=VARCHAR},
+            </if>
+            <if test="eventEndDate != null">
+                Event_End_Date = #{eventEndDate,jdbcType=VARCHAR},
+            </if>
+            <if test="eventLocation != null">
+                Event_Location = #{eventLocation,jdbcType=VARCHAR},
+            </if>
+            <if test="eventThumbnail != null">
+                Event_Thumbnail = #{eventThumbnail,jdbcType=VARCHAR},
+            </if>
+            <if test="eventMemberList != null">
+                Event_Member_List = #{eventMemberList,jdbcType=VARCHAR},
+            </if>
+            <if test="eventCommandList != null">
+                Event_Command_List = #{eventCommandList,jdbcType=VARCHAR},
+            </if>
+            <if test="eventTicketPrice != null">
+                Event_Ticket_Price = #{eventTicketPrice,jdbcType=VARCHAR},
+            </if>
+            <if test="eventTicketLeft != null">
+                Event_Ticket_Left = #{eventTicketLeft,jdbcType=VARCHAR},
+            </if>
+            <if test="eventMaxRow != null">
+                Event_Max_Row = #{eventMaxRow,jdbcType=INTEGER},
+            </if>
+            <if test="eventMaxColumn != null">
+                Event_Max_Column = #{eventMaxColumn,jdbcType=INTEGER},
+            </if>
+            <if test="eventLikeList != null">
+                Event_Like_List = #{eventLikeList,jdbcType=VARCHAR},
+            </if>
+            <if test="eventDetailLocation != null">
+                Event_Detail_Location = #{eventDetailLocation,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where Event_Id = #{eventId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey"></update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from event
+        where Event_Id = #{id,jdbcType=INTEGER}
+    </delete>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from event
+        where Event_Id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="queryAll" resultType="com.test.pojo.Event"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from event
+    </select>
+    <select id="selectOnt" resultType="com.test.pojo.Event" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from event
+        where Event_Holder_Id=#{eventHolderId} and Event_Name=#{eventName}
+    </select>
+    <select id="searchByName" resultType="com.test.pojo.Event" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from event
+        where Event_Name LIKE '%' || #{item} || '%'
+    </select>
+    <select id="searchByType" resultType="com.test.pojo.Event" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from event
+        where Event_Type = #{type}
+    </select>
+    <select id="searchByCode" resultType="com.test.pojo.Event" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from event
+        where Event_Location = #{code}
+    </select>
+    <select id="searchByTypeHome" resultType="com.test.pojo.Event" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from event
+        where Event_Type = #{type}
+    </select>
+</mapper>

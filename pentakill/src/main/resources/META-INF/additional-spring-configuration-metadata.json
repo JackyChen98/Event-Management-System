@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.druid.validation-query",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.validation-query."
+    },
+    {
+      "name": "spring.datasource.druid.validationQuery",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.validationQuery."
+    }
+  ] }

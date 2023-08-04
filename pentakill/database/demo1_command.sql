@@ -1,0 +1,15 @@
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (1, 1, 1, 1, 'nice event', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (3, 1, 1, 1, 'I hate it', '[7]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (5, 5, 3, 3, 'Boring.', '[6,70,74]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (6, 3, 3, 3, 'Sorry for your bad experience.', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (7, 1, 1, 1, 'hhhhhhhhhhh', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (8, 1, 3, 3, '1', '[76]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (31, 3, 3, 3, 'aa', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (33, 3, 3, 3, 'hello', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (70, 3, 3, 3, 'a', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (71, 3, 3, 3, 'h', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (72, 3, 3, 3, 'hi', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (73, 3, 3, 3, '', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (74, 3, 3, 3, 'njj', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (75, 3, 3, 3, 'kk', '[]');
+INSERT INTO demo1.command (Command_Id, User_Id, Event_Id, Holder_Id, Command_Detail, Command_Reply) VALUES (76, 3, 3, 3, '2', '[]');

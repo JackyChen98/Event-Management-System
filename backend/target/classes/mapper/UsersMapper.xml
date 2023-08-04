@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.UsersMapper">
+
+    <resultMap id="BaseResultMap" type="com.test.pojo.Users">
+            <id property="userId" column="User_Id" jdbcType="INTEGER"/>
+            <result property="userPassword" column="User_Password" jdbcType="VARCHAR"/>
+            <result property="userName" column="User_Name" jdbcType="VARCHAR"/>
+            <result property="userBirthday" column="User_Birthday" jdbcType="VARCHAR"/>
+            <result property="userEmail" column="User_Email" jdbcType="VARCHAR"/>
+            <result property="userPoint" column="User_Point" jdbcType="INTEGER"/>
+            <result property="userVoucher" column="User_Voucher" jdbcType="VARCHAR"/>
+            <result property="userParticipateActivityList" column="User_Participate_Activity_List" jdbcType="VARCHAR"/>
+            <result property="userHoldActivityList" column="User_Hold_Activity_List" jdbcType="VARCHAR"/>
+            <result property="userNewsList" column="User_News_List" jdbcType="VARCHAR"/>
+            <result property="userPostcode" column="User_Postcode" jdbcType="INTEGER"/>
+            <result property="userThumbnail" column="User_Thumbnail" jdbcType="BLOB"/>
+            <result property="userFollowing" column="User_Following" jdbcType="VARCHAR"/>
+            <result property="userFollowed" column="User_Followed" jdbcType="VARCHAR"/>
+            <result property="userReceivedLikes" column="User_Received_Likes" jdbcType="INTEGER"/>
+            <result property="gameDate" column="Game_Date" jdbcType="VARCHAR"/>
+            <result property="userTag" column="User_Tag" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        User_Id,User_Password,User_Name,
+        User_Birthday,User_Email,User_Point,
+        User_Voucher,User_Participate_Activity_List,User_Hold_Activity_List,
+        User_News_List,User_Postcode,User_Thumbnail,User_Following,User_Followed,
+        User_Received_Likes, Game_Date, User_Tag
+    </sql>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.Users">
+        update users
+        <set>
+            <if test="userPassword != null">
+                User_Password = #{userPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                User_Name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userBirthday != null">
+                User_Birthday = #{userBirthday,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null">
+                User_Email = #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="userPoint != null">
+                User_Point = #{userPoint,jdbcType=INTEGER},
+            </if>
+            <if test="userVoucher != null">
+                User_Voucher = #{userVoucher,jdbcType=VARCHAR},
+            </if>
+            <if test="userParticipateActivityList != null">
+                User_Participate_Activity_List = #{userParticipateActivityList,jdbcType=VARCHAR},
+            </if>
+            <if test="userHoldActivityList != null">
+                User_Hold_Activity_List = #{userHoldActivityList,jdbcType=VARCHAR},
+            </if>
+            <if test="userNewsList != null">
+                User_News_List = #{userNewsList,jdbcType=VARCHAR},
+            </if>
+            <if test="userPostcode != null">
+                User_Postcode = #{userPostcode,jdbcType=INTEGER},
+            </if>
+            <if test="userThumbnail != null">
+                User_Thumbnail = #{userThumbnail,jdbcType=BLOB},
+            </if>
+            <if test="userFollowing != null">
+                User_Following = #{userFollowing,jdbcType=VARCHAR},
+            </if>
+            <if test="userFollowed != null">
+                User_Followed = #{userFollowed,jdbcType=VARCHAR},
+            </if>
+            <if test="userReceivedLikes != null">
+                User_Received_Likes = #{userReceivedLikes,jdbcType=INTEGER},
+            </if>
+            <if test="gameDate != null">
+                Game_Date = #{gameDate,jdbcType=VARCHAR},
+            </if>
+            <if test="userTag != null">
+                User_Tag = #{userTag,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where User_Id = #{userId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from users
+        where User_Id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="queryAll" resultType="com.test.pojo.Users" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from users
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from users
+        where User_Id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="userId">
+        insert into users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">User_Id,</if>
+            <if test="userPassword != null">User_Password,</if>
+            <if test="userName != null">User_Name,</if>
+            <if test="userBirthday != null">User_Birthday,</if>
+            <if test="userEmail != null">User_Email,</if>
+            <if test="userPoint != null">User_Point,</if>
+            <if test="userVoucher != null">User_Voucher,</if>
+            <if test="userParticipateActivityList != null">User_Participate_Activity_List,</if>
+            <if test="userHoldActivityList != null">User_Hold_Activity_List,</if>
+            <if test="userNewsList != null">User_News_List,</if>
+            <if test="userPostcode != null">User_Postcode,</if>
+            <if test="userThumbnail != null">User_Thumbnail,</if>
+            <if test="userFollowing != null">User_Following,</if>
+            <if test="userFollowed != null">User_Followed,</if>
+            <if test="userReceivedLikes != null">User_Received_Likes,</if>
+            <if test="gameDate != null">Game_Date,</if>
+            <if test="userTag != null">User_Tag,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+            <if test="userPassword != null">#{userPassword,jdbcType=VARCHAR},</if>
+            <if test="userName != null">#{userName,jdbcType=VARCHAR},</if>
+            <if test="userBirthday != null">#{userBirthday,jdbcType=VARCHAR},</if>
+            <if test="userEmail != null">#{userEmail,jdbcType=VARCHAR},</if>
+            <if test="userPoint != null">#{userPoint,jdbcType=VARCHAR},</if>
+            <if test="userVoucher != null">#{userVoucher,jdbcType=VARCHAR},</if>
+            <if test="userParticipateActivityList != null">#{userParticipateActivityList,jdbcType=VARCHAR},</if>
+            <if test="userHoldActivityList != null">#{userHoldActivityList,jdbcType=VARCHAR},</if>
+            <if test="userNewsList != null">#{userNewsList,jdbcType=VARCHAR},</if>
+            <if test="userPostcode != null">#{userPostcode,jdbcType=INTEGER},</if>
+            <if test="userThumbnail != null">#{userThumbnail,jdbcType=BLOB},</if>
+            <if test="userFollowing != null">#{userFollowing,jdbcType=VARCHAR},</if>
+            <if test="userFollowed != null">#{userFollowed,jdbcType=VARCHAR},</if>
+            <if test="userReceivedLikes != null">#{userReceivedLikes,jdbcType=INTEGER},</if>
+            <if test="gameDate != null">#{gameDate,jdbcType=VARCHAR},</if>
+            <if test="userTag != null">#{userTag,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+    <select id="selectOnt" resultType="com.test.pojo.Users" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from users
+        where User_Email=#{userEmail} and User_Password=#{userPassword}
+    </select>
+    <select id="selectOno" resultType="com.test.pojo.Users" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from users
+        where User_Email=#{userEmail}
+    </select>
+
+</mapper>

@@ -1,0 +1,2 @@
+INSERT INTO demo1.ticket (Ticket_Id, User_Id, Ticket_Row, Ticket_Column, Event_Id, Ticket_Price) VALUES (1, 1, 1, 1, 3, 20);
+INSERT INTO demo1.ticket (Ticket_Id, User_Id, Ticket_Row, Ticket_Column, Event_Id, Ticket_Price) VALUES (2, 5, 1, 2, 3, 10);

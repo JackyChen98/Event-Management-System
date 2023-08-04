@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.TicketMapper">
+
+    <resultMap id="BaseResultMap" type="com.test.pojo.Ticket">
+            <id property="ticketId" column="Ticket_Id" jdbcType="INTEGER"/>
+            <result property="userId" column="User_Id" jdbcType="INTEGER"/>
+            <result property="ticketRow" column="Ticket_Row" jdbcType="SMALLINT"/>
+            <result property="ticketColumn" column="Ticket_Column" jdbcType="SMALLINT"/>
+            <result property="eventId" column="Event_Id" jdbcType="INTEGER"/>
+            <result property="ticketPrice" column="Ticket_Price" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        Ticket_Id,User_Id,Ticket_Row,
+        Ticket_Column,Event_Id,Ticket_Price
+    </sql>
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="ticketId">
+        insert into ticket
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ticketId != null">Ticket_Id,</if>
+            <if test="userId != null">User_Id,</if>
+            <if test="eventId != null">Event_Id,</if>
+            <if test="ticketRow != null">Ticket_Row,</if>
+            <if test="ticketColumn != null">Ticket_Column,</if>
+            <if test="ticketPrice != null">Ticket_Price,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ticketId!= null">#{ticketId,jdbcType=INTEGER},</if>
+            <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+            <if test="eventId != null">#{eventId,jdbcType=INTEGER},</if>
+            <if test="ticketRow != null">#{ticketRow,jdbcType=SMALLINT},</if>
+            <if test="ticketColumn != null">#{ticketColumn,jdbcType=SMALLINT},</if>
+            <if test="ticketPrice != null">#{ticketPrice,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.Ticket">
+        update ticket
+        <set>
+            <if test="ticketRow != null">
+                Ticket_Row = #{ticketRow,jdbcType=SMALLINT},
+            </if>
+            <if test="ticketColumn != null">
+                Ticket_Column = #{ticketColumn,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where Ticket_Id = #{ticketId,jdbcType=INTEGER}
+    </update>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from ticket
+        where Ticket_Id = #{id,jdbcType=INTEGER}
+    </delete>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ticket
+        where Ticket_Id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="queryAll" resultType="com.test.pojo.Ticket"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ticket
+    </select>
+    <select id="getByTwo" resultType="com.test.pojo.Ticket"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ticket
+        where User_Id = #{userId,jdbcType=INTEGER} and Event_Id = #{eventId,jdbcType=INTEGER}
+    </select>
+</mapper>

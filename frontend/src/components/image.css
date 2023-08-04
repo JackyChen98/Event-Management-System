@@ -1,0 +1,10 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 70%;
+    margin: 0 auto;
+    overflow: hidden; /* 隐藏超出容器宽度的部分 */
+  }
+  
+
+  
