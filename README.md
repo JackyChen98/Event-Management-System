@@ -9,9 +9,8 @@ Snapshot：
 ![image](https://github.com/JackyChen98/Event-Management-System/assets/46955098/c4cafed0-ea25-4fff-9ce0-037ed8ef4f32)
 ![image](https://github.com/JackyChen98/Event-Management-System/assets/46955098/39c7bbc7-5658-4bba-8897-09292281cbca)
 
-=
 
-This is the COMP9900 project done by team Pentakill.
+This is the UNSW COMP9900 project done by team Pentakill.
 
 Team members:
 -
@@ -43,4 +42,4 @@ Method two
 2. Run ‘mvn package’ and wait for the process to finish.
 3. Change the dictionary to ‘target’.
 4. Run ‘java -jar demo1-0.0.1-SNAPSHOT.jar’.
-5. Then open the browser go to the ‘localhost:8090’
+5. Then open the browser and go to the ‘localhost:8090’
